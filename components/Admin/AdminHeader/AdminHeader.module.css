@@ -1,0 +1,142 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--black);
+  color: var(--white);
+  border-bottom: 2px solid var(--orange);
+  position: relative;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.backBtn:hover {
+  color: var(--orange);
+}
+
+.mobileMenuButton {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-left: auto;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.mobileMenuButton:hover {
+  color: var(--orange);
+}
+
+.breadcrumbWrapper {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.quickLinks {
+  display: flex;
+  gap: 1.25rem;
+  margin-left: auto;
+}
+
+.quickLinks a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.25rem 0;
+  position: relative;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.quickLinks a:hover {
+  color: var(--orange);
+}
+
+.quickLinks a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--orange);
+  transition: width 0.2s ease;
+}
+
+.quickLinks a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .quickLinks {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .mobileMenuButton {
+    display: block;
+  }
+
+  .quickLinks {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--black);
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 0;
+    margin-left: 0;
+    border-bottom: 2px solid var(--orange);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 1000;
+  }
+
+  .quickLinks.mobileMenuOpen {
+    max-height: 400px;
+  }
+
+  .quickLinks a {
+    padding: 1rem 1.25rem;
+    margin: 0.25rem 1rem;
+    border-radius: 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .quickLinks a:first-child {
+    border-top: none;
+  }
+
+  .quickLinks a:hover {
+    background-color: rgba(255, 111, 0, 0.1);
+    color: var(--orange);
+  }
+
+  .quickLinks a::after {
+    display: none;
+  }
+
+  .breadcrumbWrapper {
+    display: none;
+  }
+}

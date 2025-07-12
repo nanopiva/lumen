@@ -1,0 +1,290 @@
+.footer {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 3rem 1.5rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+
+.section {
+  flex: 1 1 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 200px;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--orange);
+  margin: 0 0 0.2rem 0;
+}
+
+.slogan {
+  color: var(--light-gray);
+  font-size: 0.8rem;
+  font-style: italic;
+  margin: 0;
+}
+
+.description {
+  color: var(--light-gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 300px;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--white);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--orange);
+}
+
+.links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.navLink {
+  text-decoration: none;
+  color: var(--light-gray);
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+  position: relative;
+  display: inline-block;
+}
+
+.navLink:hover {
+  color: var(--orange);
+  transform: translateX(3px);
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--orange);
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.contactItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.contactLabel {
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+.contactLink {
+  color: var(--light-gray);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contactLink:hover {
+  color: var(--orange);
+}
+
+.socialContainer {
+  margin-top: 0.5rem;
+}
+
+.socialTitle {
+  font-size: 0.9rem;
+  color: var(--gray);
+  margin-bottom: 0.8rem;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.socialLink:hover {
+  background-color: rgba(255, 165, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.socialIcon {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%)
+    contrast(103%);
+  transition: filter 0.3s ease;
+}
+
+.socialLink:hover .socialIcon {
+  filter: invert(76%) sepia(29%) saturate(2000%) hue-rotate(350deg)
+    brightness(100%) contrast(98%);
+}
+
+.admin {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--gray);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: inline-block;
+}
+
+.admin:hover {
+  color: var(--orange);
+}
+
+.bottom {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.bottom p {
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin: 0;
+}
+
+.legalLinks {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 0.8rem;
+}
+
+.legalLinks a {
+  color: var(--gray);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.legalLinks a:hover {
+  color: var(--orange);
+}
+
+.separator {
+  color: var(--gray);
+}
+
+.mobileHidden {
+  display: block;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .footer {
+    padding: 2rem 1rem 1rem;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .section {
+    min-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logoContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .description {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .mobileHidden {
+    display: none;
+  }
+
+  .socialLinks {
+    justify-content: center;
+  }
+
+  .legalLinks {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .separator {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .socialLinks {
+    gap: 0.5rem;
+  }
+
+  .socialLink {
+    width: 32px;
+    height: 32px;
+  }
+}

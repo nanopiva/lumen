@@ -1,0 +1,217 @@
+.container {
+  background-color: var(--white);
+  border-radius: 8px;
+  border: 1px solid var(--light-gray);
+  padding: 1.5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--black);
+  margin: 0;
+}
+
+.countBadge {
+  background-color: var(--light-gray);
+  color: var(--gray);
+  font-size: 0.8rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background-color: var(--white);
+  border: 1px solid var(--light-gray);
+  border-radius: 6px;
+}
+
+.listItem:hover {
+  border-color: var(--orange);
+}
+
+.itemName {
+  flex-grow: 1;
+  color: var(--black);
+  font-size: 0.95rem;
+}
+
+.deleteButton {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  background: var(--white);
+  cursor: pointer;
+}
+
+.deleteButton:hover .trashIcon {
+  color: var(--orange);
+}
+
+.deleteButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.trashIcon {
+  color: var(--gray);
+  transition: color 0.2s ease;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  color: var(--gray);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.emptyIcon {
+  width: 48px;
+  height: 48px;
+  color: var(--light-gray);
+  margin-bottom: 1rem;
+}
+
+.formWrapper {
+  border-top: 1px solid var(--light-gray);
+  padding-top: 1.5rem;
+}
+
+.loader {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background:
+    radial-gradient(farthest-side, var(--orange) 94%, #0000) top/4px 4px
+      no-repeat,
+    conic-gradient(#0000 30%, var(--orange));
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 4px), #000 0);
+  animation: l13 1s infinite linear;
+}
+
+.loaderWhite {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background:
+    radial-gradient(farthest-side, var(--white) 94%, #0000) top/4px 4px
+      no-repeat,
+    conic-gradient(#0000 30%, var(--white));
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 4px), #000 0);
+  animation: l13 1s infinite linear;
+}
+
+@keyframes l13 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: var(--white);
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modalTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.modalText {
+  color: var(--gray);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.modalCancel {
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  background: var(--light-gray);
+  color: var(--black);
+  border: 1px solid var(--light-gray);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modalCancel:hover {
+  background: #d5d4d1;
+}
+
+.modalConfirm {
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  background: var(--orange);
+  color: var(--white);
+  border: 1px solid var(--orange);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 80px;
+}
+
+.modalConfirm:hover {
+  background: #e66500;
+}
+
+.modalConfirm:disabled {
+  background: var(--light-gray);
+  color: var(--gray);
+  border-color: var(--light-gray);
+  cursor: not-allowed;
+}

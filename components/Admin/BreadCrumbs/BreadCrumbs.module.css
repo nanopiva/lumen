@@ -1,0 +1,72 @@
+.breadcrumb {
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.breadcrumbList {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumbItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.link {
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.link:hover {
+  color: var(--orange);
+  text-decoration: underline;
+}
+
+.separator {
+  color: var(--light-gray);
+  user-select: none;
+}
+
+.current {
+  color: var(--orange);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .breadcrumb {
+    font-size: 0.85rem;
+  }
+
+  .breadcrumbItem {
+    gap: 0.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .breadcrumb {
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+  }
+
+  .breadcrumbList {
+    gap: 0.3rem;
+  }
+
+  .link,
+  .current {
+    white-space: normal;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

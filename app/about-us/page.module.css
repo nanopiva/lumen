@@ -1,0 +1,270 @@
+.container {
+  max-width: 100%;
+  color: var(--black);
+}
+
+.hero {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 6rem 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--orange);
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin: 0 auto 3rem;
+  font-weight: 400;
+  max-width: 600px;
+}
+
+.section {
+  padding: 5rem 0;
+  background-color: var(--white);
+}
+
+.sectionAlt {
+  padding: 5rem 0;
+  background-color: var(--light-gray);
+}
+
+.sectionContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.sectionHeader {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--black);
+}
+
+.sectionText {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--gray);
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.feature {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.feature:last-child {
+  border-bottom: none;
+}
+
+.feature h3 {
+  font-size: 1.4rem;
+  color: var(--orange);
+  margin-bottom: 1rem;
+}
+
+.feature p {
+  color: var(--gray);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.history {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.historyContent h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--black);
+}
+
+.historyContent p {
+  color: var(--gray);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.historyImage {
+  height: 400px;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.historyImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.benefit {
+  text-align: center;
+  padding: 2rem;
+}
+
+.benefitIcon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 111, 0, 0.1);
+  border-radius: 50%;
+  color: var(--orange);
+}
+
+.benefit h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--black);
+}
+
+.benefit p {
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+.noticeSection {
+  padding: 3rem 0;
+  background-color: var(--white);
+  border-top: 1px solid var(--light-gray);
+}
+
+.noticeContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  background: rgba(255, 111, 0, 0.05);
+  border-radius: 8px;
+}
+
+.noticeIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 111, 0, 0.1);
+  border-radius: 50%;
+  flex-shrink: 0;
+  color: var(--orange);
+}
+
+.noticeIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.noticeText {
+  color: var(--gray);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.noticeText strong {
+  color: var(--black);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 4rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .section,
+  .sectionAlt {
+    padding: 3rem 0;
+  }
+
+  .section h2 {
+    font-size: 1.8rem;
+  }
+
+  .history {
+    grid-template-columns: 1fr;
+  }
+
+  .historyImage {
+    height: 250px;
+    order: -1;
+    margin-bottom: 2rem;
+  }
+
+  .benefits {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .section h2 {
+    font-size: 1.6rem;
+  }
+
+  .noticeContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+}
