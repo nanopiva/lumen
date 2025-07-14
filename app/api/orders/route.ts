@@ -5,6 +5,7 @@ type CartItem = { productId: string; price: number; quantity: number };
 
 export async function POST(req: Request) {
   const supabase = await createClient();
+
   const {
     customer_name,
     customer_email,
@@ -23,7 +24,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "No items provided" }, { status: 400 });
   }
 
-  /* check stock */
+  // Verificar stock actual
   const ids = items.map((i) => i.productId);
   const { data: productRows, error: stockErr } = await supabase
     .from("products")
@@ -51,7 +52,7 @@ export async function POST(req: Request) {
     );
   }
 
-  /* create order*/
+  // Crear orden
   const totalAmount = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
 
   const {
@@ -80,6 +81,7 @@ export async function POST(req: Request) {
     );
   }
 
+  // Insertar ítems de la orden
   const orderItems = items.map((i) => ({
     order_id: order.id,
     product_id: i.productId,
@@ -98,7 +100,7 @@ export async function POST(req: Request) {
     );
   }
 
-  /* remove stock*/
+  // Restar stock
   await Promise.all(
     items.map((i) =>
       supabase
@@ -108,7 +110,7 @@ export async function POST(req: Request) {
     )
   );
 
-  /*send email confirmation*/
+  // Enviar email de confirmación
   try {
     const origin = new URL(req.url).origin;
 

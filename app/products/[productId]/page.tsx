@@ -4,13 +4,16 @@ import ProductDetailed from "../../../components/ProductsPage/ProductDetailed/Pr
 import styles from "./page.module.css";
 
 type Props = {
-  params: {
+  params: Promise<{
     productId: string;
-  };
+  }>;
 };
 
 export default async function ProductPage({ params }: Props) {
-  const product = await getProductById(params.productId);
+  // Await the params promise
+  const { productId } = await params;
+
+  const product = await getProductById(productId);
 
   if (!product || product.is_deleted) {
     return notFound();

@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
   const subcategory = searchParams.get("subcategory") || undefined;
   const brand = searchParams.get("brand") || undefined;
 
-  // query products with stock
+  // Obtener productos con stock
   let baseQuery = supabase
     .from("products")
     .select("id, price, category_id, subcategory_id, brand_id")
@@ -27,14 +27,17 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  // extract unique ids
-  const categoryIds = Array.from(new Set(products.map((p) => p.category_id)));
+  // Extraer IDs únicos y calcular rango de precios
+  const categoryIds = Array.from(
+    new Set(products.map((p) => p.category_id).filter(Boolean))
+  );
   const subcategoryIds = Array.from(
     new Set(products.map((p) => p.subcategory_id).filter(Boolean))
   );
   const brandIds = Array.from(
     new Set(products.map((p) => p.brand_id).filter(Boolean))
   );
+
   const prices = products.map((p) => Number(p.price));
   const minPrice = prices.length > 0 ? Math.min(...prices) : 0;
   const maxPrice = prices.length > 0 ? Math.max(...prices) : 0;

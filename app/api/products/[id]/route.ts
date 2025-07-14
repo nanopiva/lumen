@@ -17,10 +17,10 @@ type ProductUpdate = {
 
 export async function PUT(
   request: NextRequest,
-  context: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   const supabase = await createClient();
-  const { id } = context.params;
+  const { id } = await context.params;
   const body = await request.json();
 
   const {
@@ -68,10 +68,10 @@ export async function PUT(
 
 export async function DELETE(
   _req: NextRequest,
-  context: { params: { id: string } }
+  context: { params: Promise<{ id: string }> }
 ) {
   const supabase = await createClient();
-  const { id } = context.params;
+  const { id } = await context.params;
 
   const { error } = await supabase
     .from("products")

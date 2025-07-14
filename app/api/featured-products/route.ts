@@ -10,9 +10,9 @@ export async function GET() {
       `
       id, title, price, image_url, description, stock,
       brand_id, category_id, subcategory_id, is_featured,
-      brand:brand_id (id,name),
-      category:category_id (id,name),
-      subcategory:subcategory_id (id,name)
+      brand:brand_id (id, name),
+      category:category_id (id, name),
+      subcategory:subcategory_id (id, name)
     `
     )
     .eq("is_featured", true)
@@ -21,8 +21,8 @@ export async function GET() {
     .limit(8);
 
   if (error) {
-    console.error("Featured fetch error:", error.message);
-    // always returns an array so as not to break the client
+    console.error("Error fetching featured products:", error.message);
+    // Siempre devolver un array vacío para no romper el cliente
     return NextResponse.json([], { status: 200 });
   }
 

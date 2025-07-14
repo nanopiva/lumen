@@ -41,8 +41,6 @@ export async function GET(request: NextRequest) {
 
   if (!includeDeleted) query = query.eq("is_deleted", false);
   if (!includeOutOfStock) query = query.gt("stock", 0);
-
-  if (!includeOutOfStock) query = query.gt("stock", 0);
   if (category) query = query.eq("category_id", category);
   if (subcategory) query = query.eq("subcategory_id", subcategory);
   if (brand) query = query.eq("brand_id", brand);
