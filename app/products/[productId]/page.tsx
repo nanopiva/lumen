@@ -10,7 +10,6 @@ type Props = {
 };
 
 export default async function ProductPage({ params }: Props) {
-  // Await the params promise
   const { productId } = await params;
 
   const product = await getProductById(productId);

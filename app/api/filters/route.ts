@@ -9,7 +9,6 @@ export async function GET(request: NextRequest) {
   const subcategory = searchParams.get("subcategory") || undefined;
   const brand = searchParams.get("brand") || undefined;
 
-  // Obtener productos con stock
   let baseQuery = supabase
     .from("products")
     .select("id, price, category_id, subcategory_id, brand_id")
@@ -27,7 +26,6 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  // Extraer IDs únicos y calcular rango de precios
   const categoryIds = Array.from(
     new Set(products.map((p) => p.category_id).filter(Boolean))
   );
