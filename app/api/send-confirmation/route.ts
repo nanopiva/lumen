@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
 
   try {
     await resend.emails.send({
-      from: "Store <orders@onresend.com>",
+      from: "Lumen order <orderLumen@nanop.com.ar>",
       to: customer.email,
       subject: `Order #${order.id} confirmed!`,
       react: OrderConfirmationEmail({
