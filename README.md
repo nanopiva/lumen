@@ -99,8 +99,8 @@ RESEND_API_KEY=...
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/yourusername/ecommerce-simulation
-cd ecommerce-simulation
+git clone https://github.com/nanopiva/lumen
+cd lumen
 pnpm install
 pnpm dev
 ```
